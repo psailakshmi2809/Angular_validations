@@ -1,0 +1,70 @@
+<div class="container-fluid mt-5">
+  <form class="content" [formGroup]="submitForm" #datas="ngForm">
+      <h3 class="text-center"><div class="font-weight">Sai Registration Portal</div></h3>
+      <div >
+          <input type="text" ngModel name="Fname" [(ngModel)]="fname" formControlName="Fname" class="form-control" placeholder="fname">
+          <div *ngIf="Fname.invalid && (Fname.touched || Fname.dirty)">
+            <small>  <span class="er" *ngIf="Fname.errors?.required">*First Name is Required</span></small>
+             <small> <span class="er" *ngIf="Fname.errors?.pattern">*Enter Characters Only</span></small>
+          </div>
+      </div>
+
+      <div >
+        <input type="text" ngModel name="Lname" [(ngModel)]="lname" formControlName="Lname" class="form-control" placeholder="lname">
+        <div *ngIf="Lname.invalid && (Lname.touched || Lname.dirty)">
+          <small>  <span class="er" *ngIf="Lname.errors?.required">*Last Name is Required</span></small>
+           <small><span class="er" *ngIf="Lname.errors?.pattern">*Enter Characters Only</span></small>
+        </div>
+    </div>
+      <div >
+          <input type="text" ngModel name="mail" [(ngModel)]="email" formControlName="mail" class="form-control" placeholder="Email Id">
+          <div *ngIf="mail.invalid && (mail.touched || mail.dirty)">
+          <small>    <span class="er" *ngIf="mail.errors?.required">*Email ID is Required</span></small>
+          <small>    <span class="er" *ngIf="mail.errors?.email">*Enter Valid Email</span></small>
+          </div>
+      </div>
+      <div >
+          <input type="text" ngModel name="age_" [(ngModel)]="age" formControlName="age_" class="form-control" placeholder="Age">
+          <div *ngIf="age_.invalid && (age_.touched || age_.dirty)">
+          <small>   <span class="er" *ngIf="age_.errors?.required">*Age is Required</span></small>
+           <small>   <span class="er" *ngIf="age_.errors?.pattern">*Enter Valid Age</span></small>
+          </div>
+      </div>
+      <div >
+          <input type="text" ngModel name="place_" [(ngModel)]="place" formControlName="place_" class="form-control" placeholder="Place">
+          <div *ngIf="place_.invalid && (place_.touched || place_.dirty)">
+          <small>   <span class="er" *ngIf="place_.errors?.required">*Place is Required</span></small>
+         <small>    <span class="er" *ngIf="place_.errors?.pattern">*Enter Characters Only</span></small>
+          </div>
+      </div>
+      <div >
+          <input type="text" ngModel name="mob" [(ngModel)]="mobile" formControlName="mob_" class="form-control" placeholder="Mobile Number">
+          <div *ngIf="mob_.invalid && (mob_.touched || mob_.dirty)">
+           <small>   <span class="er" *ngIf="mob_.errors?.required">*Mobile Number is Required</span></small>
+           <small> <span class="er" *ngIf="mob_.errors?.pattern">*Enter Valid Mobile Number</span></small>
+          </div>
+      </div>
+      <div >
+          <button class="btn"  type="button" (click)="OnSubmit()">Submit</button>
+      </div>
+  </form><br>
+  <div>
+      <table class="table table-bordered">
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Email ID</th>
+          <th>Age</th>
+          <th>Place</th>
+          <th>Mobile No</th>
+          <tbody *ngFor="let n of AllData">
+              <td>{{n.fname}}</td>
+              <td>{{n.lname}}</td>
+              <td>{{n.email}}</td>
+              <td>{{n.age}}</td>
+              <td>{{n.place}}</td>
+              <td>{{n.mobile}}</td>
+          </tbody>
+      </table>
+  </div>
+     
+</div>
